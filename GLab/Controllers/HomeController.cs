@@ -15,7 +15,7 @@ namespace GLab.Controllers
         {
             var result = new ConsumedModels
             {
-                UsrPsts = db.UserPosts.Where(x => x.ID == x.ID).ToList()
+                UsrPsts = db.UserPosts.ToList()
             };
             return View(result);
            
