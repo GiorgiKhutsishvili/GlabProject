@@ -1,0 +1,436 @@
+﻿/*Fixed Menu*/
+body{
+    margin: 0;
+    background-color: #fff
+
+}
+
+html{
+    font-family: "Arial GEO Bold", sans-serif;
+}
+a{
+    text-decoration: none !important;
+}
+
+.nbr{
+    overflow: hidden;
+    background-color: #483dd6;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+    -moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
+    box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+    /*border: 2px solid black;
+    content: " ";
+    display: table;*/
+}
+
+.nbr a{
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 17px;
+    text-decoration: none !important;
+}
+/*Fixed Menu*/
+
+
+/*Login Modal*/
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+
+.usrLogin{
+    /*background-color: #483dd6;*/
+    color: white;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    /*width: 40%;*/
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+}
+
+.container1 {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+
+.mdl {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    /*overflow: auto;*/ 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+
+.modl-content {
+    background-color: #fefefe;
+    margin: 1% auto 15% auto;
+    border: 1px solid #888;
+    width: 40%; 
+}
+
+
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+
+.anmate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+/*Login Modal*/
+
+
+/*News Page*/
+@media (min-width: 1200px){
+    .mainContainer {
+        width: 1170px;
+    }
+}
+
+
+@media (min-width: 992px){
+    .mainContainer {
+        width: 970px;
+    }
+}
+
+@media (min-width: 768px){
+  .mainContainer {
+    width: 750px;
+  }
+}
+
+
+
+
+.mainContainer {
+    padding-top: 50px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.mainContainer {
+    width: 860px;
+}
+
+* {
+    /* -webkit-box-sizing: border-box; */
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.newsSection{
+    margin: 60px 0;
+}
+
+.newsSection .news{
+    margin-bottom: 50px;
+}
+
+
+.titleandDate{
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.newsSection .news .title{
+    color: #314171;
+    font-size: 26px;
+}
+
+.newsSection .news .image img, .newsSection .newsFull .image img{
+    width: 100%;
+
+}
+
+.contentNAuthor{
+    padding-top: 5px;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.author p {
+    font-size: 23px;
+}
+
+b, strong {
+    font-weight: 700;
+}
+
+.newsSection .news .contentNAuthor{
+    margin-top: 0px;
+}
+
+@media (min-width: 0px){
+  .newsSection .news .contentNAuthor .author, .newsSection .news .date {
+        font-size: 12px;
+   }
+}
+
+.newsSection .news .author, .newsSection .newsFull .author {
+    color: #0D7FC3;
+}
+
+.newsSection .news .contentNAuthor .content {
+    margin-top: 2px;
+}
+
+
+.newsSection .news .content, .newsSection .newsFull .content {
+    font-size: 14px;
+    line-height: 22px;
+    color: #000;
+}
+/*News Page*/
+
+/*Registration Page*/
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,.signupbtn {
+    float: left;
+    width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+/*Registration Page*/
+
+/*Admin Page*/
+#addBtn{
+    border: none;
+    color: white;
+    /*padding: 14px 28px;*/
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #616161!important;
+    width: 10%;
+    height: 10%
+}
+
+#addBtn:hover {
+    background-color: #616161!important;
+}
+.table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width:100%;
+    border: 1px solid #ddd;
+}
+th, td{
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color:#f2f2f2;
+}
+
+/*Add Modal*/
+/* The Modal (background) */
+.postModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 22px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.postModal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+    
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.closeModal {
+    color: #9cb0b1;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeModal:hover,
+.closeModal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #616161! important;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #616161! important;
+    color: white;
+}
+
+
+.modal-backdrop {
+    display: none;
+}
+/*Add Modal*/
+/*Admin Page*/

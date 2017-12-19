@@ -1,0 +1,49 @@
+﻿@model GLab.Models.RegistrationModel
+
+<div style="margin-top:100px;" class="registration">
+    @using (Html.BeginForm("Registration", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <h4>რეგისტრაცია</h4>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new {placeholder = "სახელი", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">     
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { placeholder = "გვარი", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "ელ.ფოსტა", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "პაროლი", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RepeatPassword, new { htmlAttributes = new { placeholder = "გაიმეორეთ პაროლი", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RepeatPassword, "", new { @class = "text-danger" })
+                    <input type="submit" value="რეგისტრაცია" class="btn btn-success" />
+                    <p style="color:red" class="RegistrationFailed">@ViewBag.RegistrationFailed</p>
+                    <p style="color:green" class="RegistrationSuccedeed">@ViewBag.RegistrationSuccess</p>
+                    
+                </div>
+            </div>
+    }
+</div>

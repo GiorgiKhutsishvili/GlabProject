@@ -1,0 +1,125 @@
+﻿@model GLab.Models.ConsumedModels
+
+
+@using GLab.Models;
+@{ 
+    UserRegistration user = (UserRegistration)Session["user"];
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/arial-geo-bold.min.css" rel="stylesheet" />
+    <link href="~/Content/ErrorValidation.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/Login.js"></script>
+    <script src="~/Ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/EditUserPost.js"></script>
+    <script src="~/Scripts/DeleteUserPost.js"></script>
+</head>
+<body>
+      
+    <div class="nbr">
+        <a style="color:white" href="/Home/Index">მთავარი</a>
+
+        @if (Session["user"] != null)
+        {
+            <div style="float:right" class="userMenu">
+                @if (user != null)
+                {
+                    <a style="color:white; cursor:pointer;" class="loggedUser">@user.Name @user.Surname</a>
+                }
+                <a href="/Admin/AddPost" style="color:white; cursor:pointer;" class="adminPanel">Admin Panel</a>
+
+                <a href="/Account/LogOut" style="color:white; cursor:pointer;" class="logOut">
+                    <span class="glyphicon glyphicon-log-out">
+                        <span style="margin-left:-12px;">გამოსვლა</span>
+                    </span>
+                </a>
+            </div>
+        }
+
+        @if (Session["user"] == null)
+        {
+            <div style="float:right" class="UsrLoginUsrReg">
+                <a id="usrLogin" onclick="document.getElementById('loginModal').style.display='block'" class="usrLogin" style="width:auto; color:white; cursor:pointer;">შესვლა</a>
+                <a href="/Account/Registration" id="usrRegistrarion" onclick="document.getElementById('registrationModal').style.display='block'" class="usrRegistration" style="color:white; cursor:pointer;">რეგისტრაცია</a>
+            </div>
+        }
+    </div>
+
+    @*Login Modal*@
+    <div id="loginModal" class="mdl">
+        <form class="modl-content anmate" action="/Account/Login" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('loginModal').style.display = 'none'" class="close" title="Close Modal">&times;</span>
+                <img src="~/Content/images/man.svg" alt="მომხმარებლის სურათი" class="avatar">
+            </div>
+            
+            <div class="container1">
+                <input type="text" placeholder="ელ.ფოსტა" id="UsrEmail" name="UsrEmail" />
+
+                <input type="password" placeholder="პაროლი" id="UsrPassword" name="UsrPassword" />
+
+                <button class="loginBtn" style="color:white;" type="submit">შესვლა</button>
+
+                <div id="ErrorMsg">
+
+                </div>
+
+                <div id="SuccessMsg">
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Get modal
+        var modal = document.getElementById('loginModal');
+
+        // მოდალის გარეთ კლიკის დროს მოდალის დახურვა
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    @*Login Modal*@
+   
+
+    
+
+    <script>
+        // Get registrationModal
+        var registrationModal = document.getElementById('registrationModal');
+
+        // მოდალის გარეთ კლიკის დროს მოდალის დახურვა
+        window.onclick = function(event) {
+            if (event.target == registrationModal) {
+                registrationModal.style.display = "none";
+            }
+        }
+    </script>
+    @*Registration Modal*@
+
+
+
+    @RenderBody()
+    <footer>
+       
+    </footer>
+</body>
+</html>
