@@ -39,10 +39,11 @@
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.RepeatPassword, new { htmlAttributes = new { placeholder = "გაიმეორეთ პაროლი", @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.RepeatPassword, "", new { @class = "text-danger" })
-                    <input type="submit" value="რეგისტრაცია" class="btn btn-success" />
+                    <div class="regBtn" style="margin-top:5px;">
+                        <input type="submit" value="რეგისტრაცია" class="btn btn-success" />
+                    </div>                    
                     <p style="color:red" class="RegistrationFailed">@ViewBag.RegistrationFailed</p>
-                    <p style="color:green" class="RegistrationSuccedeed">@ViewBag.RegistrationSuccess</p>
-                    
+                    <p style="color:green" class="RegistrationSuccedeed">@ViewBag.RegistrationSuccess</p> 
                 </div>
             </div>
     }

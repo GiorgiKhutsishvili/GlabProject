@@ -20,14 +20,20 @@ namespace GLab.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Login(string UsrEmail, string UsrPassword)
+        public ActionResult Login()
         {
-            UserRegistration user = db.UserRegistrations.FirstOrDefault(x => x.Email == UsrEmail && x.Password == MD5Hash(randomSecret + UsrPassword));
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(ConsumedModels login)
+        {
+            UserRegistration user = db.UserRegistrations.FirstOrDefault(x => x.Email == login.UsrEmail && x.Password == MD5Hash(randomSecret + login.UsrPassword));
 
             if(user == null)
             {
-                return Json("მომხმარებლის სახელი ან პაროლი არასწორია");
+                ViewBag.LoginFailed = "მომხმარებლის სახელი ან პაროლი არასწორია";
+                return RedirectToAction("Login", "Account");
             }
             else
             {
