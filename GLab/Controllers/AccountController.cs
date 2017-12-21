@@ -20,7 +20,15 @@ namespace GLab.Controllers
             return View();
         }
 
-        
+        public ActionResult Login()
+        {
+            if (Session["user"] != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Login(ConsumedModels login)
         {
@@ -28,13 +36,12 @@ namespace GLab.Controllers
 
             if(user == null)
             {
-                ViewBag.LoginFailed = "მომხმარებლის სახელი ან პაროლი არასწორია";
-                return RedirectToAction("Login", "Account");
+                ViewBag.error = "მომხმარებლის სახელი ან პაროლი არასწორია";
+                return View();
             }
             else
             {
                 Session["user"] = user;
-                //return Json("LoginSucceeded");
                 return RedirectToAction("AddPost", "Admin");
             }
 

@@ -93,16 +93,16 @@
                 {
                     @Html.AntiForgeryToken()
 
-                    @Html.TextBoxFor(model => model.usrPstModel.NewsTitle, new { id = "NewsTitle", Name = "NewsTitle", placeholder = "სიახლის სათაური", @class = "form-input" })
-                    @Html.ValidationMessageFor(model => model.usrPstModel.NewsTitle, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(model => model.NewsTitle, new { id = "NewsTitle", Name = "NewsTitle", placeholder = "სიახლის სათაური", @class = "form-input" })
+                    @Html.ValidationMessageFor(model => model.NewsTitle, "", new { @class = "text-danger" })
 
 
-                    @Html.TextBoxFor(model => model.usrPstModel.AuthorName, new { id = "AuthorName", Name = "AuthorName", placeholder = "ავტორის სახელი", @class = "form-input" })
-                    @Html.ValidationMessageFor(model => model.usrPstModel.AuthorName, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(model => model.AuthorName, new { id = "AuthorName", Name = "AuthorName", placeholder = "ავტორის სახელი", @class = "form-input" })
+                    @Html.ValidationMessageFor(model => model.AuthorName, "", new { @class = "text-danger" })
 
 
-                    @Html.TextBoxFor(model => model.usrPstModel.AuthorSurName, new { id = "AuthorSurName", Name = "AuthorSurName", placeholder = "ავტორის გვარი", @class = "form-input" })
-                    @Html.ValidationMessageFor(model => model.usrPstModel.AuthorSurName, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(model => model.AuthorSurName, new { id = "AuthorSurName", Name = "AuthorSurName", placeholder = "ავტორის გვარი", @class = "form-input" })
+                    @Html.ValidationMessageFor(model => model.AuthorSurName, "", new { @class = "text-danger" })
 
                     <textarea class="ckeditor" id="NewsText" name="NewsText" rows="10" cols="80" placeholder="სიახლის ტექსტი"></textarea>
 
