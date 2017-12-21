@@ -1,15 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GlabDB" Class="GlbDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-J5K7G0L\SQLEXPRESS2016;Initial Catalog=GlabDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="GlabDBConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.UserRegistration" Member="UserRegistrations">
-    <Type Name="UserRegistration">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Surname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
-      <Association Name="UserRegistration_UserPost" Member="UserPosts" ThisKey="ID" OtherKey="UserID" Type="UserPost" />
-    </Type>
-  </Table>
+  <Connection Mode="WebSettings" ConnectionString="Data Source=GND\MSSQLSERVER2016;Initial Catalog=GlabDB;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="GlabDBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.UserPost" Member="UserPosts">
     <Type Name="UserPost">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -23,6 +13,16 @@
       <Column Name="AuthorSurName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="NewsText" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Association Name="UserRegistration_UserPost" Member="UserRegistration" ThisKey="UserID" OtherKey="ID" Type="UserRegistration" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserRegistration" Member="UserRegistrations">
+    <Type Name="UserRegistration">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(32) NOT NULL" CanBeNull="false" />
+      <Association Name="UserRegistration_UserPost" Member="UserPosts" ThisKey="ID" OtherKey="UserID" Type="UserPost" />
     </Type>
   </Table>
 </Database>
