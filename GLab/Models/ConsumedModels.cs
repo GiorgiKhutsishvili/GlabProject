@@ -16,12 +16,20 @@ namespace GLab.Models
 
         //for login modal
         [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "გთხოვთ ჩაწეროთ სწორედ ელ.ფოსტის მისამართ")]
+        [EmailAddress(ErrorMessage = "გთხოვთ ჩაწეროთ სწორედ ელ.ფოსტის მისამართი")]
         [Required(ErrorMessage = "ჩაწერეთ ელ.ფოსტა")]
         public string UsrEmail { get; set; }
 
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "ჩაწერეთ პაროლი")]
         public string UsrPassword { get; set; }
+
+        //for add post modal
+        [Required(ErrorMessage = "ჩაწერეთ სიახლის სათაური")]
+        public string NewsTitle { get; set; }
+        [Required(ErrorMessage = "ჩაწერეთ სახელი")]
+        public string AuthorName { get; set; }
+        [Required(ErrorMessage = "ჩაწერეთ გვარი")]
+        public string AuthorSurName { get; set; }
     }
 }

@@ -20,7 +20,6 @@ namespace GLab.Controllers
         // GET: Admin
         public ActionResult AddPost()
         {
-
             if(Session["user"] == null)
             {
                 return RedirectToAction("Index", "Home");
@@ -36,7 +35,7 @@ namespace GLab.Controllers
 
         [ValidateInput(false)]
         [HttpPost]
-        public ActionResult AddPost(HttpPostedFileBase file, string NewsTitle, string AuthorName, string AuthorSurname, string NewsText)
+        public ActionResult AddPost(HttpPostedFileBase file, ConsumedModels userPost, string NewsText)
         {
             var path = ""; //for path to save
 
@@ -64,9 +63,9 @@ namespace GLab.Controllers
 
                     UserPost UserPst = new UserPost();
                     UserPst.UserID = thisLoggedUser.ID;
-                    UserPst.NewsTitle = NewsTitle;
-                    UserPst.AuthorName = AuthorName;
-                    UserPst.AuthorSurName = AuthorSurname;
+                    UserPst.NewsTitle = userPost.NewsTitle;
+                    UserPst.AuthorName = userPost.AuthorName;
+                    UserPst.AuthorSurName = userPost.AuthorSurName;
                     UserPst.NewsText = NewsText;
                     UserPst.PicturePath = path;
                     UserPst.PictureName = pictureName;
