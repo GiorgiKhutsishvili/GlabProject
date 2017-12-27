@@ -104,10 +104,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ErrorValidation.css" />
     <Content Include="Content\Images\girl.svg" />
-    <Content Include="Content\Images\glabimage.jpg" />
-    <Content Include="Content\Images\Glabimage2.jpg" />
-    <Content Include="Content\Images\if_users-10_984119.png" />
-    <Content Include="Content\Images\img_avatar2.png" />
     <Content Include="Content\Images\man.svg" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -154,7 +150,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\Login.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -200,6 +198,7 @@
     <Folder Include="Ckeditor\plugins\" />
     <Folder Include="Ckeditor\samples\" />
     <Folder Include="Ckeditor\skins\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

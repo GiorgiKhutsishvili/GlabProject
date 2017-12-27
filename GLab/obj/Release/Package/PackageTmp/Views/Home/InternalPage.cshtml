@@ -1,0 +1,41 @@
+﻿@model GLab.Models.ConsumedModels
+
+@{ 
+    var SingleUserPost = Model.SingleUserPost;
+}
+
+
+<div class="mainContainer">
+    <div class="newsSection">
+        <div class="news">
+            <div class="titleandDate">
+                <div class="title">
+                    <a href=""><p>@SingleUserPost.NewsTitle</p></a>
+                </div>
+                <div class="co-xs-12">
+                    <div class="date" style="padding-left:0; float:left; padding-right:21px;">
+                        <p>@SingleUserPost.CreateDate.ToShortDateString()</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="image">
+                    <img class="img-responsive" src='@Url.Action("Images","Content", new { id = SingleUserPost.PictureName + SingleUserPost.PictureExtension})' />
+                </div>
+            </div>
+
+            <div class="contentNAuthor">
+                <div class="author">
+                    <p>@SingleUserPost.AuthorName @SingleUserPost.AuthorSurName</p>
+                </div>
+                <div class="fullText">
+                    <p>
+                        @Html.Raw(SingleUserPost.NewsText)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

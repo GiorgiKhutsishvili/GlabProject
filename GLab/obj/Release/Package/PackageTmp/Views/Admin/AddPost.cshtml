@@ -1,0 +1,198 @@
+﻿@model GLab.Models.ConsumedModels
+
+@{
+    var UsrPsts = Model.UsrPsts;
+}
+
+
+
+<div class="container-fluid" style="margin-top:100px; overflow-x:auto;" id="tableContainer">
+
+    <button id="addBtn">დამატება</button>
+
+
+    <table id="tbl" style="margin-top:10px;" class="table">
+        <tr>
+            <th>Id</th>
+            <th>
+                სათაური
+            </th>
+            <th>
+                თარიღი
+            </th>
+            <th>
+                სურათი
+            </th>
+            <th>
+                სახელი
+            </th>
+            <th>
+                გვარი
+            </th>
+            <th>
+                სიახლის ტექსტი
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in UsrPsts)
+        {
+            <tr class="PostedData">
+                <td>
+                    @item.ID
+                </td>
+                <td>
+                    @item.NewsTitle
+                </td>
+                <td>
+                    @item.CreateDate
+                </td>
+                <td>
+                    <img class="img-responsive posted-img" src='@Url.Action("Images","Content", new { id = item.PictureName + item.PictureExtension})' />
+                </td>
+                <td>
+                    @item.AuthorName
+                </td>
+                <td>
+                    @item.AuthorSurName
+                </td>
+                <td>
+                    @{
+                        var fullContent = @item.NewsText.ToString();
+                        var shortContent = fullContent;
+                    }
+                    @if (fullContent.Count() > 200)
+                    {
+                        shortContent = fullContent.Substring(0, 250);
+                        var indexOfLastHar = shortContent.LastIndexOf(' ');
+                        shortContent = shortContent.Substring(0, indexOfLastHar);
+                    }
+                    @Html.Raw(shortContent)
+                </td>
+                <td>
+                    <button id="@item.ID" type="button" class="btn btn-info command-edit">რედაქტირება</button>
+                    <hr>
+                    <button id="@item.ID" data-toggle="modal" data-target="#myModal" type="button" class="btn btn-danger command-remove">წაშლა</button>
+                </td>
+                <td></td>
+            </tr>
+                        }
+
+
+    </table>
+</div>
+
+<div id="AddModal" class="postModal">
+    <!--Modal Content-->
+    <div class="postModal-content">
+        <div class="modal-body">
+            <span class="closeModal">&times;</span>
+            <div class="container1">
+                @using (Html.BeginForm("AddPost", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.TextBoxFor(model => model.NewsTitle, new { id = "NewsTitle", Name = "NewsTitle", placeholder = "სიახლის სათაური", @class = "form-input" })
+                    @Html.ValidationMessageFor(model => model.NewsTitle, "", new { @class = "text-danger" })
+
+
+                    @Html.TextBoxFor(model => model.AuthorName, new { id = "AuthorName", Name = "AuthorName", placeholder = "ავტორის სახელი", @class = "form-input" })
+                    @Html.ValidationMessageFor(model => model.AuthorName, "", new { @class = "text-danger" })
+
+
+                    @Html.TextBoxFor(model => model.AuthorSurName, new { id = "AuthorSurName", Name = "AuthorSurName", placeholder = "ავტორის გვარი", @class = "form-input" })
+                    @Html.ValidationMessageFor(model => model.AuthorSurName, "", new { @class = "text-danger" })
+
+                    <textarea class="ckeditor" id="NewsText" name="NewsText" rows="10" cols="80" placeholder="სიახლის ტექსტი"></textarea>
+
+                    <input type="file" name="file" value="Browse" />
+
+                    <button onClick="CKupdate()" class="AddPstBtn" style="color:white; margin-top:5px;" type="submit">დამატება</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--  starts edit modal  -->
+<button id="start-edit-modal" style="display:none;" class="btn btn-info" data-toggle="modal" data-target="#EditModal"></button>
+<!--Edit Modal-->
+<div id="EditModal" class="postModal">
+    <!--Modal Content-->
+    <div class="postModal-content">
+        <div class="modal-body">
+            <span class="closeModal">&times;</span>
+            <div class="container1">
+                
+                    @Html.AntiForgeryToken()
+
+                    <input type="text" id="NewsTitle" />
+                    <input type="text" id="AuthorName" />
+                    <input type="text" id="AuthorSurname" />
+
+                    <textarea class="ckeditor" id="NewsText" name="NewsText" rows="10" cols="80" placeholder="სიახლის ტექსტი"></textarea>
+
+                    <button id="updateUserpost" onClick="CKupdate()" style="color:white; margin-top:5px;" type="button">განახლება</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Delete Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p><strong style="color:red; font-size:18px;">მონაცემების წაშლა! დარწმუნებული ხართ?</strong></p>
+                <button id="confirmdelete" type="button" class="btn btn-danger delete">წაშლა</button>
+                <hr />
+                <button type="button" class="btn btn-success" id="dismiss" data-dismiss="modal">გაუქმება</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete Modal -->
+
+
+
+<script>
+    //Get Modal
+    var modal = document.getElementById('AddModal');
+
+    //Get button
+    var btn = document.getElementById("addBtn");
+
+    //span element that closes modal
+    var span = document.getElementsByClassName("closeModal")[0];
+
+
+    //ღილაკზე დაჭერისას მოდალის გახსნა
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    //გათიშვის ღილაკზე დაჭერისას მოდალის გათიშვა(x)
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    //მოდალის გარეთ კლიკის დროს მოდალის გათიშვა
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+</script>
+
+<script>
+    function CKupdate()
+    {
+      for (instance in CKEDITOR.instances)
+      CKEDITOR.instances[instance].updateElement();
+    }
+</script>
