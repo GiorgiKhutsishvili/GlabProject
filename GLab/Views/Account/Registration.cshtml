@@ -9,27 +9,27 @@
             <h2>ახალი მომხმარებლის რეგისტრაცია</h2>
 
             <div class="reginpt">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "სახელი", @class = "form-control" } })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "სახელი" }})
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
             
             <div class="reginpt">
-                @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { placeholder = "გვარი", @class = "form-control" } })
+                @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { placeholder = "გვარი" }})
                 @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
             </div>
             
             <div class="reginpt">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "ელ.ფოსტა", @class = "form-control" } })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "ელ.ფოსტა" }})
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
             
             <div class="reginpt">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "პაროლი", @class = "form-control" } })
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "პაროლი" }})
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
             </div>
 
             <div class="reginpt">
-                @Html.EditorFor(model => model.RepeatPassword, new { htmlAttributes = new { placeholder = "გაიმეორეთ პაროლი", @class = "form-control" } })
+                @Html.EditorFor(model => model.RepeatPassword, new { htmlAttributes = new { placeholder = "გაიმეორეთ პაროლი" }})
                 @Html.ValidationMessageFor(model => model.RepeatPassword, "", new { @class = "text-danger" })
             </div>
 

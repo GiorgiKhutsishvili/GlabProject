@@ -73,10 +73,10 @@
 
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                    @Html.EditorFor(model => model.UsrEmail, new { htmlAttributes = new { placeholder = "ელ.ფოსტა", @class = "form-control" } })
+                    @Html.EditorFor(model => model.UsrEmail, new { htmlAttributes = new { placeholder = "ელ.ფოსტა" }})
                     @Html.ValidationMessageFor(model => model.UsrEmail, "", new { @class = "text-danger" })
 
-                    @Html.EditorFor(model => model.UsrPassword, new { htmlAttributes = new { placeholder = "პაროლი", @class = "form-control" } })
+                    @Html.EditorFor(model => model.UsrPassword, new { htmlAttributes = new { placeholder = "პაროლი" }})
                     @Html.ValidationMessageFor(model => model.UsrPassword, "", new { @class = "text-danger" })
 
                     <div class="lgnBtn" style="margin-top:5px;">
