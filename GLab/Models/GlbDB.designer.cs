@@ -39,7 +39,7 @@ namespace GLab.Models
     #endregion
 		
 		public GlbDBDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["GlabDBConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["GlabDBConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
