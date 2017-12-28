@@ -1,0 +1,60 @@
+﻿@model GLab.Models.ConsumedModels
+
+@{ 
+    var UsrPsts = Model.UsrPsts;
+}
+
+
+@foreach (var item in UsrPsts)
+{
+    <div class="mainContainer">
+        <div class="newsSection">
+            <div class="news">
+                <div class="titleandDate">
+                    <div class="title">
+                        <a href="@Url.Action("InternalPage","Home", new { id = item.ID})"><p>@item.NewsTitle</p></a>
+                    </div>
+                    <div class="co-xs-12">
+                        <div class="date" style="padding-left:0; float:left; padding-right:21px;">
+                            <p>@item.CreateDate.ToShortDateString()</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="image">
+                        <img class="img-responsive" src='@Url.Action("Images","Content", new { id = item.PictureName + item.PictureExtension})' />
+                    </div>
+                </div>
+
+                <div class="contentNAuthor">
+                    <div class="author">
+                        <p>@item.AuthorName @item.AuthorSurName</p>
+                    </div>
+                    <div class="content">
+                        @{ 
+                            var fullContent = @item.NewsText.ToString();
+                            var shortContent = fullContent;
+                        }
+
+                        @if(fullContent.Count() > 200)
+                        {
+                            shortContent = fullContent.Substring(0, 250);
+                            var indexOfLastHar = shortContent.LastIndexOf(' ');
+                            shortContent = shortContent.Substring(0, indexOfLastHar);
+                        }
+                        @Html.Raw(shortContent)
+       
+                    </div>
+                    <div class="readMore">
+                        <div class="" style="padding-top: 6px;">
+                            @if (fullContent.Count() > 200)
+                            {
+                                <span><a href="@Url.Action("InternalPage","Home", new { id = item.ID})">იხილეთ მეტი</a></span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

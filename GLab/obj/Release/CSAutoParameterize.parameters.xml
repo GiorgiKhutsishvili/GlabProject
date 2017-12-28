@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="GlabDBEntities-Web.config Connection String" description="GlabDBEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.GlbDB.csdl|res://*/Models.GlbDB.ssdl|res://*/Models.GlbDB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=GND\MSSQLSERVER2016;initial catalog=GlabDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\GND\\Documents\\GitHub\\GlabProject\\GLab\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='GlabDBEntities']/@connectionString" />
+  </parameter>
+  <parameter name="GlabDBConnectionString-Web.config Connection String" description="GlabDBConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=GND\MSSQLSERVER2016;Initial Catalog=GlabDB;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\GND\\Documents\\GitHub\\GlabProject\\GLab\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='GlabDBConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="GlabDBConnectionString1-Web.config Connection String" description="GlabDBConnectionString1 Connection String used in web.config by the application to access the database." defaultValue="Data Source=DESKTOP-J5K7G0L\SQLEXPRESS2016;Initial Catalog=GlabDB;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\GND\\Documents\\GitHub\\GlabProject\\GLab\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='GlabDBConnectionString1']/@connectionString" />
+  </parameter>
+</parameters>
