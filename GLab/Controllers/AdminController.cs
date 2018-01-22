@@ -51,7 +51,7 @@ namespace GLab.Controllers
                     string fileNameExt = Path.GetFileName(file.FileName);
                     string pictureExtension = Path.GetExtension(fileNameExt);
 
-                    //ფაილების შემოწმება სურათი არის თუ არა
+                    //ფაილების შემოწმება, რა ტიპის ფაილია.
                     if(Path.GetExtension(file.FileName).ToLower() == ".jpg" || Path.GetExtension(file.FileName).ToLower() == ".png" || Path.GetExtension(file.FileName).ToLower() == ".gif" || Path.GetExtension(file.FileName).ToLower() == ".jpeg")
                     {
                         path = Path.Combine(Server.MapPath("~/Content/Images"), pictureName + pictureExtension);
